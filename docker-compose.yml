@@ -19,13 +19,14 @@ services:
       - ./4minitz_storage/mongodb:/data/db
 
   4minitz:
+    container_name: ncc-mm
     image: 4minitz/4minitz:stable
     restart: always
     ports:
       - 3100:3333
     environment:
       - MONGO_URL=mongodb://mongo/4minitz
-      - ROOT_URL=http://localhost:3100
+      - ROOT_URL=https://minutes.marshalmiller.com
     volumes:
       - ./4minitz_storage:/4minitz_storage
     networks:
